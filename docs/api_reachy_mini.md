@@ -1,10 +1,7 @@
-curl 'http://172.20.10.11:8042/api/play' \
--X 'POST' \
--H 'Accept: */*' \
--H 'Content-Type: application/json' \
---data-raw '{"move_name":"relief2"}'
+curl 'http://172.20.10.11:8000/api/move/play/recorded-move-dataset/pollen-robotics/reachy-mini-emotions-library/MOVE_NAME' \
+-X 'POST'
 
-move_names:
+MOVE_NAME:
 
 👍 yes1
 ❤️ loving1
