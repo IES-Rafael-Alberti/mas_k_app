@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cl3jlghbk3fir"]
+
+[ext_resource type="Texture2D" uid="uid://dapwp444my1k" path="res://art/assets/mensaje-jugadore-azul.png" id="1_waefy"]
+[ext_resource type="PackedScene" uid="uid://c7e4wqewyqgwa" path="res://scenes/message.tscn" id="2_jr6y8"]
+[ext_resource type="Script" uid="uid://c3wffgetrvj2f" path="res://scripts/conversation_panel.gd" id="2_sk1ag"]
+[ext_resource type="Texture2D" uid="uid://buqednxbxu07t" path="res://art/assets/mensaje-emociones-light.png" id="4_sk1ag"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iywne"]
+
+[node name="Conversation_p1" type="TextureRect" unique_id=1054992858]
+size_flags_horizontal = 0
+texture = ExtResource("1_waefy")
+stretch_mode = 4
+script = ExtResource("2_sk1ag")
+
+[node name="Panel" parent="." unique_id=190659816 instance=ExtResource("2_jr6y8")]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 113.0
+offset_right = 726.0
+offset_bottom = 243.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_iywne")
+
+[node name="Emojis_panel" type="TextureRect" parent="." unique_id=1898780182]
+visible = false
+layout_mode = 0
+offset_left = 434.0
+offset_top = -18.0
+offset_right = 1106.0
+offset_bottom = 126.0
+texture = ExtResource("4_sk1ag")

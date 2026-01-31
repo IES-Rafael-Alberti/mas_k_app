@@ -1,11 +1,14 @@
 class_name Conversation
 extends Node
 
+@export var conversation_panel: ConversationPanel
+
 var normal_text_scene: PackedScene = load("res://scenes/line_text.tscn")
 var masked_text_scene: PackedScene = load("res://scenes/line_edit.tscn")
 
-func _init(file_name, text_container):
-	load_file(file_name, text_container)
+func _init(file_name, _conversation_panel):
+	conversation_panel = _conversation_panel
+	load_file(file_name, _conversation_panel.get_panel())
 
 func load_file(file_name: String, text_container):
 	var text = load_from_file(file_name)

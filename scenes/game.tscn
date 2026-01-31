@@ -3,12 +3,30 @@
 [ext_resource type="Script" uid="uid://dmmxio8jcxt3l" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dh3l1lj5ktbgy" path="res://scenes/line_text.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://cxqe5xvetca7k" path="res://scenes/line_edit.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://c7e4wqewyqgwa" path="res://scenes/message.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cl3jlghbk3fir" path="res://scenes/conversation_p1.tscn" id="4_p57ef"]
+[ext_resource type="Texture2D" uid="uid://cm7b85xhripvq" path="res://art/prototype/back_placeholder.png" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://d1ed7v2jfqboh" path="res://scenes/conversation_p2.tscn" id="5_u5sy4"]
 
 [node name="Game" type="Node2D" unique_id=1547055071]
 script = ExtResource("1_yqjtg")
 text_file = "res://text/first_text.txt"
 normal_text_scene = ExtResource("2_lbhrr")
 masked_text_scene = ExtResource("3_lnu2h")
+text_container_p1 = ExtResource("4_p57ef")
+text_container_p2 = ExtResource("5_u5sy4")
 
-[node name="Panel" parent="." unique_id=190659816 instance=ExtResource("4_lbhrr")]
+[node name="Background" type="TextureRect" parent="." unique_id=1401381384]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_u5sy4")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=546000667]
+offset_left = 489.0
+offset_top = 96.0
+offset_right = 1916.0
+offset_bottom = 863.0
+
+[node name="Conversations" type="VBoxContainer" parent="ScrollContainer" unique_id=1025901083]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
