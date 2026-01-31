@@ -1,4 +1,4 @@
-curl 'http://172.20.10.11:8000/api/move/play/recorded-move-dataset/pollen-robotics/reachy-mini-emotions-library/MOVE_NAME' \
+curl 'http://192.168.150.102:8000/api/move/play/recorded-move-dataset/pollen-robotics/reachy-mini-emotions-library/MOVE_NAME' \
 -X 'POST'
 
 MOVE_NAME:
