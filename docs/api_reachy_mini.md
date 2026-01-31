@@ -5,13 +5,13 @@ MOVE_NAME:
 
 👍 yes1
 ❤️ loving1
-😂 laughing1
-😮 surprised2
-😢 downcast1
-🙏 helpful2
-😅 laughing2
-👏 enthusiastic2
 😁 cheerful1
-🤯 confused1
+😂 laughing1
+😢 downcast1
 ☺️ enthusiastic1
+🙏 helpful2
 😇 welcoming2
+😮 surprised2
+😅 laughing2
+🤯 confused1
+👎 no1
