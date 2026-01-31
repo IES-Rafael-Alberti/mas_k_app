@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://dd4mjbdjh70dg"]
+
+[ext_resource type="FontFile" uid="uid://cc6q3vdvv2kti" path="res://fonts/VT323-Regular.ttf" id="1_xx3mc"]
+
+[resource]
+Label/fonts/font = ExtResource("1_xx3mc")
+LineEdit/fonts/font = ExtResource("1_xx3mc")
+TextEdit/fonts/font = ExtResource("1_xx3mc")

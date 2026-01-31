@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d4epp6du8k0ee"]
+
+[ext_resource type="Theme" uid="uid://dd4mjbdjh70dg" path="res://themes/inputtext.tres" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://dmmxio8jcxt3l" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dh3l1lj5ktbgy" path="res://scenes/line_text.tscn" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cxqe5xvetca7k" path="res://scenes/line_edit.tscn" id="3_lnu2h"]
+
+[node name="Game" type="Node2D" unique_id=1547055071]
+script = ExtResource("1_yqjtg")
+text_file = "res://text/first_text.txt"
+normal_text_scene = ExtResource("2_lbhrr")
+masked_text_scene = ExtResource("3_lnu2h")
+
+[node name="Panel" type="Panel" parent="." unique_id=2053268727]
+offset_right = 329.0
+offset_bottom = 81.0
+
+[node name="TextContainer" type="HFlowContainer" parent="Panel" unique_id=617223564]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uwrxv")

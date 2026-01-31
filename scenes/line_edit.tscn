@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cxqe5xvetca7k"]
+
+[ext_resource type="Theme" uid="uid://dd4mjbdjh70dg" path="res://themes/inputtext.tres" id="1_47au0"]
+[ext_resource type="Script" uid="uid://diqgb1fxgh0qq" path="res://scripts/line_edit.gd" id="2_vt5wb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwrxv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqjtg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lnu2h"]
+
+[node name="LineEdit" type="LineEdit" unique_id=1219361879]
+theme = ExtResource("1_47au0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uwrxv")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_yqjtg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lnu2h")
+placeholder_text = "______________________________"
+expand_to_text_length = true
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+script = ExtResource("2_vt5wb")
+
+[connection signal="resized" from="." to="." method="_on_resized"]
