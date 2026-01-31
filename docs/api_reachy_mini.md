@@ -15,3 +15,6 @@ MOVE_NAME:
 😅 laughing2
 🤯 confused1
 👎 no1
+
+Al inicio:
+welcoming1
