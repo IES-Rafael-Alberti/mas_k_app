@@ -1,7 +1,7 @@
 
 # Uncomment the push section to enable automatic builds on push to main branch
 on:
-workflow_dispatch:
+ workflow_dispatch:
 #  push:
 #    branches:
 #      - main
