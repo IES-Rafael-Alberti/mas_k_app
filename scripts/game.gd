@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var text_file: String
+@export var text_files: Array[String]
 
 @export var normal_text_scene: PackedScene
 @export var masked_text_scene: PackedScene
@@ -31,7 +31,8 @@ func _ready() -> void:
 	Global.http = $HTTPRequest
 	Global.init_reachy()
 	players = [text_container_p1, text_container_p2]
-	var file_dialogs = FileAccess.open(text_file, FileAccess.READ)
+	Global.conversations_size = text_files.size()
+	var file_dialogs = FileAccess.open(text_files[Global.current_text_file], FileAccess.READ)
 	var content:String = file_dialogs.get_as_text()
 	dialogs = content.split("\n", false)
 	next_player(true)
@@ -60,9 +61,10 @@ func next_player(first: bool = false):
 		current_player += 1
 		current_player %= 2
 		current_dialog += 1
+		
 		if current_dialog >= dialogs.size():
-			await get_tree().create_timer(10).timeout
-			get_tree().quit()
+			await get_tree().create_timer(3).timeout
+			get_tree().change_scene_to_file("res://scripts/gameover.tscn")
 			return
 	Global.disconnect_next_text()
 	var conversation = players[current_player].instantiate()
