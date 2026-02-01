@@ -30,11 +30,9 @@ func stop_timer():
 	$Label.visible = false
 
 func next_action():
-	timeout = false
-	$Label.visible = false
+	stop_timer()
 	get_parent().get_parent().get_parent().next_action()
 
 func _on_timer_timeout() -> void:
-	timeout = false
-	$Label.visible = false
+	stop_timer()
 	next_action()
