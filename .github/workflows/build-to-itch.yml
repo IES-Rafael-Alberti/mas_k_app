@@ -37,14 +37,14 @@ jobs:
       - name: Web Build
         run: |
           cd $PROJECT_PATH
-          godot -v --headless --export-release "HTML5" ../builds/web/index.html
+          godot -v --headless --export-release "HTML5" ./builds/web/index.html
           echo ___CARPETA DE WEB___
           ls ../builds/web
       - name: Windows Build
         run: |
           cd $PROJECT_PATH
-          godot -v --headless --export-release "Windows Desktop" ../builds/windows/$EXPORT_NAME
-          cd ../builds/windows
+          godot -v --headless --export-release "Windows Desktop" ./builds/windows/$EXPORT_NAME
+          cd ./builds/windows
           echo ___CARPETA DE WINDOWS PRE MV___ 
           ls
           mv $EXPORT_NAME "${EXPORT_NAME}.exe"
@@ -56,8 +56,8 @@ jobs:
         run: |
           cd $PROJECT_PATH
           mkdir -p ../builds/mac
-          godot -v --verbose --headless --export-release "macOS" "../builds/mac/$EXPORT_NAME.app"
-          cd ../builds/mac
+          godot -v --verbose --headless --export-release "macOS" "./builds/mac/$EXPORT_NAME.app"
+          cd ./builds/mac
           echo ___CARPETA DE MAC PRE ZIP___
           ls
           zip -r "${EXPORT_NAME}_mac.zip" "${EXPORT_NAME}.app"
@@ -67,8 +67,8 @@ jobs:
       - name: Linux Build
         run: |
           cd $PROJECT_PATH
-          godot -v --headless --export-release "Linux/X11" ../builds/linux/$EXPORT_NAME
-          cd ../builds/linux
+          godot -v --headless --export-release "Linux/X11" ./builds/linux/$EXPORT_NAME
+          cd ./builds/linux
           echo ___CARPETA DE LINUX PRE MV___
           ls
           mv $EXPORT_NAME "${EXPORT_NAME}.x86_64"
