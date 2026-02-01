@@ -2,6 +2,14 @@ extends LineEdit
 
 var container_margin = 10.0
 
+func activate():
+	editable = true
+	grab_focus()
+
+func deactivate():
+	editable = false
+
+
 func _on_resized() -> void:
 	var line_edit = get_viewport().gui_get_focus_owner()
 	if line_edit:

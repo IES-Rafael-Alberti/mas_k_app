@@ -42,7 +42,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("next") and not current_phase:
 		current_conversation.conversation_panel.stop_timer()
 		next_action()
-	if event.is_action_pressed("next_text"):
+	if event.is_action_pressed("next_text") and not current_phase:
 		current_conversation.next_text()
 	scroll_container.set_deferred("scroll_vertical", scroll_container.get_v_scroll_bar().max_value)
 
@@ -61,7 +61,8 @@ func next_player(first: bool = false):
 		current_player %= 2
 		current_dialog += 1
 		if current_dialog >= dialogs.size():
-			get_tree().change_scene_to_file("res://scenes/main.tscn")
+			await get_tree().create_timer(10).timeout
+			get_tree().quit()
 			return
 	var conversation = players[current_player].instantiate()
 	conversations_panel.add_child(conversation)

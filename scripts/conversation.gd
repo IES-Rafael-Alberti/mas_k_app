@@ -5,7 +5,7 @@ extends Node
 
 var normal_text_scene: PackedScene = load("res://scenes/line_text.tscn")
 var masked_text_scene: PackedScene = load("res://scenes/line_edit.tscn")
-var meca_text_scene: PackedScene = load("res://scenes/line_edit.tscn")
+var meca_text_scene: PackedScene = load("res://scenes/meca_edit.tscn")
 
 var masked_fields: Array[LineEdit]
 var current_text: int = 0
@@ -15,17 +15,16 @@ enum states {NORMAL, MECA, MASKED}
 func _init(dialog, _conversation_panel):
 	conversation_panel = _conversation_panel
 	load_file(dialog, _conversation_panel.get_panel())
-	masked_fields[current_text].editable = true
-	masked_fields[current_text].grab_focus()
+	masked_fields[current_text].activate()
 
 func next_text():
-	masked_fields[current_text].editable = false
+	if current_text >= masked_fields.size():
+		masked_fields[current_text].deactivate()
 	current_text += 1
 	if current_text >= masked_fields.size():
 		conversation_panel.next_action()
 	else:
-		masked_fields[current_text].editable = true
-		masked_fields[current_text].grab_focus()
+		masked_fields[current_text].activate()
 
 func load_file(dialog: String, text_container):
 	var current_state = states.NORMAL
@@ -52,15 +51,14 @@ func load_file(dialog: String, text_container):
 					current_state = states.MECA
 					add_masked_text(temporal_text, text_container)
 					temporal_text = ""
-			" ":
+			_:
 				if current_state == states.MASKED:
 					current_state = states.NORMAL
 					add_masked_text(temporal_text, text_container)
-					temporal_text = " "
+					temporal_text = character
 				else:
-					temporal_text += " "
-			_:
-				temporal_text += character
+					temporal_text += character
+
 	if temporal_text:
 		if current_state == states.NORMAL:
 			add_normal_text(temporal_text, text_container)
@@ -80,6 +78,6 @@ func add_masked_text(text: String, text_container):
 
 func add_meca_text(text: String, text_container):
 	var instance = meca_text_scene.instantiate()
-	instance.placeholder_text = text
+	instance.set_meca_text(text)
 	masked_fields.append(instance)
 	text_container.add_child(instance)
