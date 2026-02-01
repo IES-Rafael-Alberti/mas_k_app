@@ -52,16 +52,6 @@ jobs:
           rm "${EXPORT_NAME}.exe"
           echo ___CARPETA DE WINDOWS___
           ls
-      - name: Mac Build
-        run: |
-          cd $PROJECT_PATH
-          mkdir -p ./builds/mac
-          godot -v --verbose --headless --export-release "macOS" "./builds/mac/$EXPORT_NAME.zip"
-          cd ./builds/mac
-          echo ___CARPETA DE MAC PRE ZIP___
-          ls
-          echo ___CARPETA DE MAC___
-          ls
       - name: Linux Build
         run: |
           cd $PROJECT_PATH
@@ -82,5 +72,4 @@ jobs:
         run: |
           butler push builds/web $ITCH_USER/$ITCH_GAME:html5
           butler push builds/windows $ITCH_USER/$ITCH_GAME:windows
-          butler push builds/mac $ITCH_USER/$ITCH_GAME:mac
           butler push builds/linux $ITCH_USER/$ITCH_GAME:linux
