@@ -39,10 +39,10 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
-	if event.is_action_pressed("next") and not current_phase:
+	if event.is_action_pressed("next") and not current_phase and not current_conversation.is_meca_text():
 		current_conversation.conversation_panel.stop_timer()
 		next_action()
-	if event.is_action_pressed("next_text") and not current_phase:
+	if event.is_action_pressed("next_text") and not current_phase and not current_conversation.is_meca_text():
 		current_conversation.next_text()
 	scroll_container.set_deferred("scroll_vertical", scroll_container.get_v_scroll_bar().max_value)
 
@@ -64,6 +64,7 @@ func next_player(first: bool = false):
 			await get_tree().create_timer(10).timeout
 			get_tree().quit()
 			return
+	Global.disconnect_next_text()
 	var conversation = players[current_player].instantiate()
 	conversations_panel.add_child(conversation)
 	current_conversation = Conversation.new(dialogs[current_dialog], conversation)

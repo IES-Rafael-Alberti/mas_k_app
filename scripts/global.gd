@@ -5,6 +5,13 @@ var http: HTTPRequest
 var pending_request: bool = false
 var reachy_ip: String
 
+signal next_text
+
+func disconnect_next_text():
+	print(next_text.get_connections().size())
+	for connection in next_text.get_connections():
+		next_text.disconnect(connection["callable"])
+
 func init_reachy():
 	if reachy_present:
 		http.request_completed.connect(_on_request_completed)
