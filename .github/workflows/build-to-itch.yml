@@ -56,12 +56,10 @@ jobs:
         run: |
           cd $PROJECT_PATH
           mkdir -p ./builds/mac
-          godot -v --verbose --headless --export-release "macOS" "./builds/mac/$EXPORT_NAME.app"
+          godot -v --verbose --headless --export-release "macOS" "./builds/mac/$EXPORT_NAME.zip"
           cd ./builds/mac
           echo ___CARPETA DE MAC PRE ZIP___
           ls
-          zip -r "${EXPORT_NAME}_mac.zip" "${EXPORT_NAME}.app"
-          rm -rf "${EXPORT_NAME}.app"
           echo ___CARPETA DE MAC___
           ls
       - name: Linux Build
