@@ -69,6 +69,12 @@ func load_file(dialog: String, text_container):
 		else:
 			add_masked_text(temporal_text, text_container)
 
+func score() -> int:
+	var _score = conversation_panel.get_time_left()
+	for text_control in masked_fields:
+		if text_control.is_empty(): _score = 0.0
+	return _score * conversation_panel.emoji_mult
+	
 func add_normal_text(text: String, text_container):
 	var instance = normal_text_scene.instantiate()
 	instance.text = text

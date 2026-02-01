@@ -9,6 +9,8 @@ func activate():
 func deactivate():
 	editable = false
 
+func is_empty() -> bool:
+	return text == ""
 
 func _on_resized() -> void:
 	var line_edit = get_viewport().gui_get_focus_owner()

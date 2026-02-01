@@ -58,10 +58,10 @@ func next_action():
 
 func next_player(first: bool = false):
 	if not first:
+		Global.scores[current_player] += current_conversation.score()
 		current_player += 1
 		current_player %= 2
 		current_dialog += 1
-		
 		if current_dialog >= dialogs.size():
 			await get_tree().create_timer(3).timeout
 			get_tree().change_scene_to_file("res://scripts/gameover.tscn")

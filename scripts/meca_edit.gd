@@ -7,6 +7,9 @@ var current_char_index: int
 
 var container_margin = 10.0
 
+func is_empty():
+	return meca_text != $LineEdit.text
+
 func set_meca_text(_text: String):
 	meca_text = _text
 	placeholder_text = "_".repeat(meca_text.length())

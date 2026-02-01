@@ -1,6 +1,8 @@
 extends Node2D
 
 func _ready() -> void:
+	$Player1.text = "%.00f" % Global.scores[0]
+	$Player2.text = "%.00f" % Global.scores[1]
 	if Global.current_text_file >= Global.conversations_size-1:
 		$Button.text = "Salir"
 
