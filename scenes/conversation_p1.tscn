@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cr2dry2seduon" path="res://art/assets/emociones/laughing2.png" id="14_qxkno"]
 [ext_resource type="Texture2D" uid="uid://daq0w70fk0knm" path="res://art/assets/emociones/confused1.png" id="15_0v711"]
 [ext_resource type="Texture2D" uid="uid://bcwtfkrmdv2ta" path="res://art/assets/emociones/no1.png" id="16_rtqtf"]
+[ext_resource type="Theme" uid="uid://dd4mjbdjh70dg" path="res://themes/inputtext.tres" id="18_tmmiu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iywne"]
 
@@ -46,9 +47,9 @@ texture = ExtResource("4_sk1ag")
 [node name="HBoxContainer" type="HBoxContainer" parent="Emojis_panel" unique_id=1098391367]
 layout_mode = 0
 offset_left = 36.0
-offset_top = 45.0
+offset_top = 49.0
 offset_right = 640.0
-offset_bottom = 105.0
+offset_bottom = 97.0
 theme_override_constants/separation = 2
 
 [node name="yes1" type="TextureRect" parent="Emojis_panel/HBoxContainer" unique_id=776191626]
@@ -111,15 +112,65 @@ layout_mode = 2
 texture = ExtResource("16_rtqtf")
 script = ExtResource("6_tmmiu")
 
+[node name="Label" type="Label" parent="." unique_id=1614825900]
+layout_mode = 0
+offset_left = 677.0
+offset_top = 2.0
+offset_right = 779.0
+offset_bottom = 67.0
+theme = ExtResource("18_tmmiu")
+theme_override_colors/font_color = Color(0.06666667, 0.4745098, 0.5137255, 1)
+theme_override_font_sizes/font_size = 32
+text = "20.00"
+
+[node name="Timer" type="Timer" parent="." unique_id=106765090]
+wait_time = 20.0
+one_shot = true
+autostart = true
+
+[node name="Emoji_selected" type="TextureRect" parent="." unique_id=1929356715]
+visible = false
+layout_mode = 0
+offset_left = 604.0
+offset_top = 239.0
+offset_right = 644.0
+offset_bottom = 279.0
+texture = ExtResource("7_tmmiu")
+
 [connection signal="gui_input" from="Emojis_panel/HBoxContainer/yes1" to="Emojis_panel/HBoxContainer/yes1" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Emojis_panel/HBoxContainer/yes1" to="Emojis_panel/HBoxContainer/yes1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Emojis_panel/HBoxContainer/yes1" to="Emojis_panel/HBoxContainer/yes1" method="_on_mouse_exited"]
 [connection signal="gui_input" from="Emojis_panel/HBoxContainer/loving1" to="Emojis_panel/HBoxContainer/loving1" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Emojis_panel/HBoxContainer/loving1" to="Emojis_panel/HBoxContainer/loving1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Emojis_panel/HBoxContainer/loving1" to="Emojis_panel/HBoxContainer/loving1" method="_on_mouse_exited"]
 [connection signal="gui_input" from="Emojis_panel/HBoxContainer/cheerful1" to="Emojis_panel/HBoxContainer/cheerful1" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Emojis_panel/HBoxContainer/cheerful1" to="Emojis_panel/HBoxContainer/cheerful1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Emojis_panel/HBoxContainer/cheerful1" to="Emojis_panel/HBoxContainer/cheerful1" method="_on_mouse_exited"]
 [connection signal="gui_input" from="Emojis_panel/HBoxContainer/laughing1" to="Emojis_panel/HBoxContainer/laughing1" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Emojis_panel/HBoxContainer/laughing1" to="Emojis_panel/HBoxContainer/laughing1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Emojis_panel/HBoxContainer/laughing1" to="Emojis_panel/HBoxContainer/laughing1" method="_on_mouse_exited"]
 [connection signal="gui_input" from="Emojis_panel/HBoxContainer/downcast1" to="Emojis_panel/HBoxContainer/downcast1" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Emojis_panel/HBoxContainer/downcast1" to="Emojis_panel/HBoxContainer/downcast1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Emojis_panel/HBoxContainer/downcast1" to="Emojis_panel/HBoxContainer/downcast1" method="_on_mouse_exited"]
 [connection signal="gui_input" from="Emojis_panel/HBoxContainer/enthusiastic1" to="Emojis_panel/HBoxContainer/enthusiastic1" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Emojis_panel/HBoxContainer/enthusiastic1" to="Emojis_panel/HBoxContainer/enthusiastic1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Emojis_panel/HBoxContainer/enthusiastic1" to="Emojis_panel/HBoxContainer/enthusiastic1" method="_on_mouse_exited"]
 [connection signal="gui_input" from="Emojis_panel/HBoxContainer/helpful2" to="Emojis_panel/HBoxContainer/helpful2" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Emojis_panel/HBoxContainer/helpful2" to="Emojis_panel/HBoxContainer/helpful2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Emojis_panel/HBoxContainer/helpful2" to="Emojis_panel/HBoxContainer/helpful2" method="_on_mouse_exited"]
 [connection signal="gui_input" from="Emojis_panel/HBoxContainer/welcoming2" to="Emojis_panel/HBoxContainer/welcoming2" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Emojis_panel/HBoxContainer/welcoming2" to="Emojis_panel/HBoxContainer/welcoming2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Emojis_panel/HBoxContainer/welcoming2" to="Emojis_panel/HBoxContainer/welcoming2" method="_on_mouse_exited"]
 [connection signal="gui_input" from="Emojis_panel/HBoxContainer/surprised2" to="Emojis_panel/HBoxContainer/surprised2" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Emojis_panel/HBoxContainer/surprised2" to="Emojis_panel/HBoxContainer/surprised2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Emojis_panel/HBoxContainer/surprised2" to="Emojis_panel/HBoxContainer/surprised2" method="_on_mouse_exited"]
 [connection signal="gui_input" from="Emojis_panel/HBoxContainer/laughing2" to="Emojis_panel/HBoxContainer/laughing2" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Emojis_panel/HBoxContainer/laughing2" to="Emojis_panel/HBoxContainer/laughing2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Emojis_panel/HBoxContainer/laughing2" to="Emojis_panel/HBoxContainer/laughing2" method="_on_mouse_exited"]
 [connection signal="gui_input" from="Emojis_panel/HBoxContainer/confused1" to="Emojis_panel/HBoxContainer/confused1" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Emojis_panel/HBoxContainer/confused1" to="Emojis_panel/HBoxContainer/confused1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Emojis_panel/HBoxContainer/confused1" to="Emojis_panel/HBoxContainer/confused1" method="_on_mouse_exited"]
 [connection signal="gui_input" from="Emojis_panel/HBoxContainer/no1" to="Emojis_panel/HBoxContainer/no1" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Emojis_panel/HBoxContainer/no1" to="Emojis_panel/HBoxContainer/no1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Emojis_panel/HBoxContainer/no1" to="Emojis_panel/HBoxContainer/no1" method="_on_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

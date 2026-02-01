@@ -4,27 +4,17 @@ extends TextureRect
 signal emojis_selected
 
 var emojis_selection: bool = false
+var timeout: bool = true
 
-#func _input(event: InputEvent) -> void:
-	#pass
-	#if event is InputEventMouseButton:
-		#if emojis_selection and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			#print(event.position)
-			#var rect: Rect2 = $Emojis_panel.get_global_rect()
-			#rect.size.x -= _margin.x*2
-			#rect.size.y -= _margin.y*2
-			#rect.position.x += _margin.x
-			#rect.position.y += _margin.y
-			#print(rect)
-			#var mouse_position = $Emojis_panel.get_global_mouse_position()
-			#if rect.has_point(mouse_position):
-				#emojis_selection = false
-				#show_emojis(false)
-				#emojis_selected.emit()
+func _process(_delta: float) -> void:
+	if timeout and $Timer:
+		$Label.text = "%.2f" % $Timer.time_left
 
 func _on_emoji_selected(_emoji):
 	emojis_selection = false
 	show_emojis(false)
+	$Emoji_selected.texture = _emoji.texture
+	$Emoji_selected.visible = true
 	emojis_selected.emit()
 
 func get_panel():
@@ -33,4 +23,18 @@ func get_panel():
 func show_emojis(_visible:bool = true):
 	$Emojis_panel.visible = _visible
 	emojis_selection = _visible
-	
+
+func stop_timer():
+	$Timer.stop()
+	timeout = false
+	$Label.visible = false
+
+func next_action():
+	timeout = false
+	$Label.visible = false
+	get_parent().get_parent().get_parent().next_action()
+
+func _on_timer_timeout() -> void:
+	timeout = false
+	$Label.visible = false
+	next_action()

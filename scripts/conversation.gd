@@ -8,19 +8,29 @@ var masked_text_scene: PackedScene = load("res://scenes/line_edit.tscn")
 var meca_text_scene: PackedScene = load("res://scenes/line_edit.tscn")
 
 var masked_fields: Array[LineEdit]
+var current_text: int = 0
 
 enum states {NORMAL, MECA, MASKED}
 
-func _init(file_name, _conversation_panel):
+func _init(dialog, _conversation_panel):
 	conversation_panel = _conversation_panel
-	load_file(file_name, _conversation_panel.get_panel())
-	print(masked_fields.size())
+	load_file(dialog, _conversation_panel.get_panel())
+	masked_fields[current_text].editable = true
+	masked_fields[current_text].grab_focus()
 
-func load_file(file_name: String, text_container):
-	var text = load_from_file(file_name)
+func next_text():
+	masked_fields[current_text].editable = false
+	current_text += 1
+	if current_text >= masked_fields.size():
+		conversation_panel.next_action()
+	else:
+		masked_fields[current_text].editable = true
+		masked_fields[current_text].grab_focus()
+
+func load_file(dialog: String, text_container):
 	var current_state = states.NORMAL
 	var temporal_text: String = ""
-	for character in text:
+	for character in dialog:
 		match character:
 			"_":
 				if current_state == states.NORMAL:
@@ -56,11 +66,6 @@ func load_file(file_name: String, text_container):
 			add_normal_text(temporal_text, text_container)
 		else:
 			add_masked_text(temporal_text, text_container)
-
-func load_from_file(file_path):
-	var file = FileAccess.open(file_path, FileAccess.READ)
-	var content = file.get_as_text()
-	return content
 
 func add_normal_text(text: String, text_container):
 	var instance = normal_text_scene.instantiate()

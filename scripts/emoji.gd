@@ -4,7 +4,7 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			Global.envia_reachy(name)
-			get_parent().get_parent().get_parent()._on_emoji_selected(name)
+			get_parent().get_parent().get_parent()._on_emoji_selected(self)
 			#print(event.position)
 			#var rect: Rect2 = $Emojis_panel.get_global_rect()
 			#rect.size.x -= _margin.x*2
@@ -17,3 +17,11 @@ func _on_gui_input(event: InputEvent) -> void:
 				#emojis_selection = false
 				#show_emojis(false)
 				#emojis_selected.emit()
+
+
+func _on_mouse_entered() -> void:
+	scale = Vector2(1.1, 1.1)
+
+
+func _on_mouse_exited() -> void:
+	scale = Vector2(1, 1)
