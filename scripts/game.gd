@@ -19,7 +19,15 @@ var players: Array[PackedScene]
 var current_player = 0
 var current_phase = 0
 
+#var reachy_emojis = ["yes1", "loving1", "laughing1", "surprised2", "downcast1", "helpful2", "laughing2", "enthusiastic2", "cheerful1", "confused1", "enthusiastic1", "welcoming2", "welcoming1"]
+
 func _ready() -> void:
+	if FileAccess.file_exists("res://config/reachy.txt"):
+		Global.reachy_present = true
+		var file = FileAccess.open("res://config/reachy.txt", FileAccess.READ)
+		Global.reachy_ip = file.get_as_text().strip_edges()
+	Global.http = $HTTPRequest
+	Global.init_reachy()
 	players = [text_container_p1, text_container_p2]
 	next_player(true)
 
@@ -46,4 +54,3 @@ func next_player(first: bool = false):
 	var conversation = players[current_player].instantiate()
 	conversations_panel.add_child(conversation)
 	current_conversation = Conversation.new(text_file, conversation)
-	
