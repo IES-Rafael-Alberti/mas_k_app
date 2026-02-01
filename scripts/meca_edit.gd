@@ -13,8 +13,9 @@ func activate():
 func deactivate():
 	$LineEdit.editable = false
 
-func _on_text_changed(new_text: String) -> void:
+func _on_text_changed(_new_text: String) -> void:
 	pass # Replace with function body.
 
-func _on_editing_toggled(toggled_on: bool) -> void:
-	pass # Replace with function body.
+func _on_editing_toggled(_toggled_on: bool) -> void:
+	if _toggled_on:
+		text = meca_text
