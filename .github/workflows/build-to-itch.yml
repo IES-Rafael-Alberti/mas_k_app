@@ -39,7 +39,7 @@ jobs:
           cd $PROJECT_PATH
           godot -v --headless --export-release "HTML5" ./builds/web/index.html
           echo ___CARPETA DE WEB___
-          ls ../builds/web
+          ls ./builds/web
       - name: Windows Build
         run: |
           cd $PROJECT_PATH
@@ -55,7 +55,7 @@ jobs:
       - name: Mac Build
         run: |
           cd $PROJECT_PATH
-          mkdir -p ../builds/mac
+          mkdir -p ./builds/mac
           godot -v --verbose --headless --export-release "macOS" "./builds/mac/$EXPORT_NAME.app"
           cd ./builds/mac
           echo ___CARPETA DE MAC PRE ZIP___
