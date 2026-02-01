@@ -53,5 +53,7 @@ deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 flat = true
 
-[connection signal="editing_toggled" from="." to="." method="_on_editing_toggled"]
-[connection signal="text_changed" from="." to="." method="_on_text_changed"]
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="editing_toggled" from="LineEdit" to="." method="_on_line_edit_editing_toggled"]
+[connection signal="resized" from="LineEdit" to="." method="_on_line_edit_resized"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
