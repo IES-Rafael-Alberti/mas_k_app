@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-LanLobby="*uid://cetu2guqq3xac"
 Global="*uid://dbkn6qpgf38hm"
 
 [display]
